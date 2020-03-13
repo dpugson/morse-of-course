@@ -55,7 +55,7 @@ encoding is provided in a modern programming language.
 \ccsdesc[500]{Encoding}
 \ccsdesc[500]{Implementation~Bash}
 
-\keywords{SIGBOVIK, effect handler, delimited continuations, bash, shells}
+\keywords{SIGBOVIK, morse code, performance, bash, protocols}
 
 \maketitle
 
@@ -162,7 +162,11 @@ an effective doubling.
 
 As time is continuous,
 any given time interval may be divided into infinitely many fine
-gradations, e.g., long, short, very short, very very short ... $very_\infty$ short.
+gradations, e.g.,
+    
+\[
+    long, short, very short, very very short \cdots very_\infty short.
+\]
 
 Thus, $\mathfrak{M}$ may be arbitrarily large. The industrial
 applications of this surprising fact should not be lost upon
@@ -173,17 +177,24 @@ the reader.
 The author has provided an model implementation
 of timing-based encoding in the modern programming
 bash. The full source code of this program may be
-found at 
+found at
 
-\begin{lstlisting}[language=bash]
-function usage {
-    echo "MORSE CODE SENDER"
-    echo "morse.sh --send    input1.txt  input2.txt"
-    echo "morse.sh --recieve output1.txt output2.txt"
-}
-\end{lstlisting}
+https://github.com/ksanichols/morse-of-course.
 
-\subsection{Conclusion conclusion}
+Using utitilies such as tcpclient or bash's built in TCP support,
+this technique could easily be used across a network.
+
+\subsection{Conclusion}
+
+This simple technique and its concomitant arbitrarily large improvement
+in the performance of all data transmission protocols is certain to
+forever revolutionize economic activity on earth, with profound
+implications in all aspects of modern life.
+
+That such an profound optimization has been hidden, unbeknownst
+to man, for so many years instills a profound humility in the author,
+and inspires great hope that many such great leaps in human
+intellectual accomplishment still remain to be made.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{bibliography}
