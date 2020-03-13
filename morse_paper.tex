@@ -1,0 +1,191 @@
+\documentclass[sigplan]{acmart}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[greek, english]{babel}
+
+\usepackage{booktabs} % For formal tables
+\usepackage{hyperref}
+\usepackage{listings}
+
+% Copyright
+%\setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+%Conference
+\acmConference[SIGBOVIK 2020]{SIGBOVIK}{April 2020}{Pittsburgh, PA USA}
+\acmYear{2020}
+\copyrightyear{2020}
+
+
+%\acmBadgeL[http://ctuning.org/ae/ppopp2016.html]{ae-logo}
+%\acmBadgeR[http://ctuning.org/ae/ppopp2016.html]{ae-logo}
+
+% Document starts
+\begin{document}
+
+% Title portion. Note the short title for running heads
+\title[MORSE OF COURSE: Paper Reveals Time Dimension Wasted]{MORSE OF COURSE: Paper Reveals Time Dimension Wasted}
+
+\author{Dougal Pugson}
+\affiliation{%
+  \institution{Pugson's C++ Crypt LLC}
+  \city{New York}
+  \country{USA}
+}
+\email{dougalpugson@gmail.com}
+
+\begin{abstract}
+All modern communication protocols have been discovered to send
+nonsensical and invalid morse code sequences in addition to their
+intended data. This paper demonstrates that making use of these
+'wasted bits' can effectively infinitely increase the transmission
+rate of binary data.
+An implementation of timing-based dual-stream morse
+encoding is provided in a modern programming language.
+\end{abstract}
+
+\ccsdesc[500]{Transport Protocols}
+\ccsdesc[500]{Encoding}
+\ccsdesc[500]{Implementation~Bash}
+
+\keywords{SIGBOVIK, effect handler, delimited continuations, bash, shells}
+
+\maketitle
+
+\section{Introduction}\label{introduction}
+
+Communication between electronic entities can be concieved of as a system
+of tubes \footnote{ c.f. Stevens et alia.} or pipes \footnote{ As superbly illustrated in the inimitable
+interactive video title "Super Mario Bros. 2".}.
+Into these pipes, electronic satchels\footnote{So-called ``packets''.} are inserted
+by the electronic system. The contents of these ``packets'' are composed
+according to a specified algorithmic protocol\footnote{ From the Byzantine \begin{otherlanguage*}{greek}πρωτόκολλον\end{otherlanguage*}, meaning "First Page",
+referring to the average amount of the design specification Engineers are expected to read
+before beginning implementation.}, in a way such that, when recieved by the
+recipient \footnote{recipiō, recipere, recēpī, receptum.} can be reassembled into
+the desired message\footnote{%
+As expressed by the immortal MARSHALL McCLUHAN in the ground-breaking epistle
+"The Media is the Message",
+
+\begin{quote}
+In a culture like ours, long accustomed to splitting and 
+dividing all things as a means of control, it is sometimes
+a bit of a shock to be reminded that, in opera- tional
+and practical fact, the medium is the message.
+\end{quote}}.
+
+Many protocols for sending data via the computer have been developed,
+such as TCP, FTP, HTTP, et cetera. Upon inspection of these protocols,
+it was discovered that, in addition to their intentional messages,
+they were also transmitting nonsensical and invalid morse code
+suquences.
+
+Let ``.'' represent a short transmission, and ``-'' represent a long transmission.
+An example transmission measured from a typical TCP communication is as follows:
+
+\begin{quote}
+.......................................................
+\end{quote}.
+
+This invalid morse code sequence is unparseable\footnote{``sssssssssssssssssss'' is one possible interpretation}.
+
+This paper will demonstrate that this wasted information can be
+meaningfully replaced with useful data, effectively doubling
+the effective transmission rate.
+
+\subsection{Mathematical Prolegomena}
+
+Let $\mathfrak{D}$ represent the number of bits per transmission
+in the ordinary dimension (1 vs 0).
+
+Let $\mathfrak{M}$ represent the number of usable bits per transmission
+in the temporal dimension.
+
+Let $A_\alpha$ represent the average packet transmission length.
+
+Let $c$ represent the fastest average length of time between each
+transmission packet sent via the transmission tube (that is, the limit provided
+by the combination of hardware construction and the speed of light
+in an average vacuum)\footnote{ Though, as demonstrated by Dyson et al, brand and model can significantly
+affect results.}.
+
+Then, the rate of data transfer $r$ of any protocol may be expressed as follows:
+
+\begin{eqnarray*}
+    r = \frac{\mathfrak{M}}{A_\alpha} + \frac{\mathfrak{D}}{A_\alpha} \\
+\end{eqnarray*}
+
+For typical transmissions protocols, these following values hold:
+$\mathfrak{M} = 0$, $\mathfrak{D} = 1$, and $A_\alpha = c$
+With these values known, the equation may then be evaluated.
+
+\begin{eqnarray*}
+    r = \frac{\mathfrak{M}}{A_\alpha} + \frac{\mathfrak{D}}{A_\alpha} \\
+    r = \frac{0}{c} + \frac{1}{c} \\
+    r = \frac{1}{c} \\
+\end{eqnarray*}
+
+With the transmission rate of standard protocols established,
+we now examine the transmission rate of a temporal encoding.
+In order for temporal encoding, i.e., morse code, to be successfully transmitted,
+pauses will be required to be inserted into the transmission stream.
+This means that, for such encodings,
+
+\[
+    \mathfrak{M} > 1 \models A_\alpha < c
+\]
+
+Let us assume that each transmission unit contains one bit of information,
+and that, additionally, that transmission unit may be either short (a delay
+of 0) or long (a delay of some abritrary value $\lambda$). This would
+make the information value $\mathfrak{M}$, as defined above, 2.
+Given this, we may again evaluate the transmission rate equation
+with the following values in order to calculate the transmission
+rate of our new temporal encoding:
+$\mathfrak{M} = 2$, $\mathfrak{D} = 1$, and $A_\alpha = c + \lambda$
+
+\begin{eqnarray*}
+    r = \frac{\mathfrak{M}}{A_\alpha} + \frac{\mathfrak{D}}{A_\alpha} \\
+    r = \frac{1}{c + \lambda} + \frac{1}{c + \lambda} \\
+    r = \frac{2}{c + \lambda} \\
+\end{eqnarray*}
+
+With a small value $\lambda$, we may drastically increase throughput, up to
+an effective doubling.
+
+As time is continuous,
+any given time interval may be divided into infinitely many fine
+gradations, e.g., long, short, very short, very very short ... $very_\infty$ short.
+
+Thus, $\mathfrak{M}$ may be arbitrarily large. The industrial
+applications of this surprising fact should not be lost upon
+the reader.
+
+\subsection{Implementation}
+
+The author has provided an model implementation
+of timing-based encoding in the modern programming
+bash. The full source code of this program may be
+found at 
+
+\begin{lstlisting}[language=bash]
+function usage {
+    echo "MORSE CODE SENDER"
+    echo "morse.sh --send    input1.txt  input2.txt"
+    echo "morse.sh --recieve output1.txt output2.txt"
+}
+\end{lstlisting}
+
+\subsection{Conclusion conclusion}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{bibliography}
+
+\end{document}
