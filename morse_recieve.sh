@@ -13,7 +13,7 @@ fi
 
 function now
 {
-    python -c 'from time import time; print int(round(time() * 1000))'
+    python3 -c 'from time import time; print(int(round(time() * 1000)))'
 }
 
 function get_time_and_value

@@ -16,7 +16,7 @@ RAWINPUTB=$(cat $2)
 
 function sanitize {
     local VALUE=$(echo $@ | tr -cd '[:alnum:]._-')
-    python -c "print('$VALUE'.upper())" 
+    python3 -c "print('$VALUE'.upper())" 
 }
 
 INPUTA=$(sanitize $RAWINPUTA)
